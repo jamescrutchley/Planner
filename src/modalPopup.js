@@ -10,6 +10,7 @@ const modalPopup = () => {
 }
 
 const submitAddItemForm = () => {
+    // add coercion and error handling here
     let messageInput = document.querySelector('#message').value;;
     let dateInput = document.querySelector('#date').value;
     itemCollection.collection.push(itemFactory(messageInput, dateInput));

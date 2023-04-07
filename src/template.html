@@ -6,7 +6,15 @@
     <title>Document</title>
 </head>
 <body>
-    <form id="add-item-form" action="" style="display:none;">
+    <form id="add-item-form" action="" style="display:none;max-width: 300px;
+    padding: 10px;
+    background-color: white;
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;">
         <ul>
             <li class="form-row">
                 <p>Add Item</p>
@@ -29,5 +37,7 @@
     </form>
 
     <button id="modal-popup-button">+</button>
+    <button id="clear-all-button">Clear All</button>
+
 </body>
 </html>

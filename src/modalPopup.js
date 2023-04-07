@@ -2,8 +2,8 @@ import { itemFactory } from "./addItem";
 import itemCollection from "./manageCollection";
 
 const modalPopupButton = document.querySelector('#modal-popup-button');
-const addItemForm = document.querySelector('.add-item-form');
-const submitAddItemFormButton = document.querySelector('.submit-item');
+const addItemForm = document.querySelector('#add-item-form');
+const submitAddItemFormButton = document.querySelector('#submit-item-button');
 
 const modalPopup = () => {
     addItemForm.style.display = 'block';

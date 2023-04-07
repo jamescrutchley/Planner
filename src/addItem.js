@@ -14,3 +14,5 @@ const itemFactory = (msg, date, complete=false) => {
     const item = {msg, date, complete, id: counter++};
     return Object.assign(proto, item);
 }
+
+export {counter, itemFactory};

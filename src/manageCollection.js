@@ -8,3 +8,5 @@ const itemCollection = {
         collection = collection.filter(item => item !== selection);
     }
 }
+
+export default itemCollection;

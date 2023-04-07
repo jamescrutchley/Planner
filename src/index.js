@@ -6,6 +6,7 @@ import { elementSelection } from './selectItem';
 
 itemCollection.collection.push(itemFactory('duck', new Date()));
 itemCollection.collection.push(itemFactory('fox', new Date()));
+itemCollection.collection.push(itemFactory("boon's climbing adventures", new Date()));
 console.log(itemCollection.collection);
 
 renderItems();

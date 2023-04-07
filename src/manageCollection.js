@@ -6,8 +6,11 @@ const itemCollection = {
         this.collection = [];
         console.log(this.collection);
     },
-    removeSelected: (selection) => {
-        collection = collection.filter(item => item !== selection);
+    removeSelected: function(selection) {
+        console.log('Before collection: ' + this.collection);
+        const newCollection = this.collection.filter(item => item !== selection);
+        this.collection = newCollection;
+        console.log('After collection: ' + this.collection);
     }
 }
 

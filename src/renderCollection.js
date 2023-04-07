@@ -2,6 +2,7 @@ import itemCollection from './manageCollection';
 
 const renderItems = () => {
     const container = document.createElement('div');
+    container.id = 'item-list';
     document.body.appendChild(container);
     itemCollection.collection.forEach(item => {
         const textElement = document.createElement('p');

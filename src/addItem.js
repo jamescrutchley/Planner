@@ -6,7 +6,9 @@ const itemFactory = (msg, date, complete=false) => {
     msg,
     date,
     complete,
-    edit: () => console.log('edit function'),
+    edit(input) {
+        this.msg = input;
+    },
     toggle: () => console.log('toggle function'),
   }
     const item = {msg, date, complete, id: counter++};

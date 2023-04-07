@@ -9,6 +9,6 @@ const itemFactory = (msg, date, complete=false) => {
     edit: () => console.log('edit function'),
     toggle: () => console.log('toggle function'),
   }
-    const item = {msg, date, complete, id: ++counter};
+    const item = {msg, date, complete, id: counter++};
     return Object.assign(proto, item);
 }

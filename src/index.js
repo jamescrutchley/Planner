@@ -1,4 +1,4 @@
-import {counter, itemFactory} from './addItem';
+import {itemFactory} from './addItem';
 import renderItems from './renderCollection';
 import itemCollection from './manageCollection';
 import { modalPopupButton } from './modalPopup';

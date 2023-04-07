@@ -36,6 +36,36 @@
         </ul>
     </form>
 
+    <form id="edit-item-form" action="" style="display:none;max-width: 300px;
+    padding: 10px;
+    background-color: white;
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;">
+        <ul>
+            <li class="form-row">
+                <p>Edit Item</p>
+            </li>
+
+            <li class="form-row">
+              <label for="edit-message">Edit Item:</label>
+              <input class='form-input' type="text" id='edit-message' name='edit-message' required autofocus>
+            </li>
+            
+            <li class="form-row">
+              <label for="date">Edit Date:</label>
+              <input class='form-input' type="edit-date" name='edit-date' id='edit-date' required>
+            </li>
+
+            <li class="form-row">
+                <button type="submit" id="edit-item-button">Add</button>
+            </li>
+        </ul>
+    </form>
+
     <button id="modal-popup-button">+</button>
     <button id="clear-all-button">Clear All</button>
 

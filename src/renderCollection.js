@@ -1,5 +1,6 @@
 import itemCollection from './manageCollection';
 import { clearItem } from './clearItem';
+import { editItem } from './modalPopup';
 
 const renderItems = () => {
     const container = document.createElement('div');
@@ -20,7 +21,12 @@ const renderItemBox = (item) => {
     itemDate.textContent = item.date;
 
     const editButton = document.createElement('button');
+    editButton.setAttribute('class', 'open-edit-button');
     editButton.setAttribute('data-id', item.id);
+    // editButton.addEventListener('click', function() {
+    //     let id = editButton.getAttribute('data-id'); 
+           // editItem(id)   
+    // })
     editButton.textContent = 'EDIT';
 
     const deleteButton = document.createElement('button');

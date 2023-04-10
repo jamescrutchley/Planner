@@ -18,7 +18,7 @@ const itemCollection = {
     addObject: function(msg, date) {
         const newItem = itemFactory(msg, date);
         this.collection.push(newItem);
-        console.log('ADD: ' + newItem);
+        console.log('ADD: ' + newItem, this.collection);
         this.notifyObservers(newItem);
     },
 

@@ -1,7 +1,9 @@
 import itemCollection from '../manageCollection';
 import { clearItem } from '../delete/clearItem';
-import { editItem } from './userInteraction';
+import {editItem} from '../edit/editItem';
 import getTime from './getTime';
+import dayjs from 'dayjs';
+
 
 const renderItems = () => {
 
@@ -17,7 +19,7 @@ const renderItems = () => {
     container.id = 'item-list';
     document.body.appendChild(container);
 
-    let renderList = itemCollection.collection.sort((a, b) => a.date - b.date);
+    let renderList = itemCollection.collection.sort((a, b) => dayjs(a.date) - dayjs(b.date));
     renderList.forEach(item => {
         container.append(renderItemBox(item));
     })
@@ -35,6 +37,10 @@ const renderItemBox = (item) => {
     const editButton = document.createElement('button');
     editButton.setAttribute('class', 'open-edit-button');
     editButton.setAttribute('data-id', item.id);
+    editButton.addEventListener('click', function() {
+        let id = editButton.getAttribute('data-id');
+        editItem(id);
+    })
     editButton.textContent = 'EDIT';
 
     const deleteButton = document.createElement('button');

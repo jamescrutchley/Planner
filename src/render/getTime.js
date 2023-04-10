@@ -31,7 +31,6 @@ dayjs.updateLocale('en', {
 const getTime = (datestring) => {
     const input = datestring;
     const modified = dayjs(input);
-    console.log(modified);
     
     return modified.calendar();
 }

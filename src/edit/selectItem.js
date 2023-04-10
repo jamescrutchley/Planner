@@ -4,7 +4,7 @@ const elementSelection = () => {
 
     const selectItem = (target) => {
         target.classList.toggle('selected');
-        target.style.backgroundColor = 'grey';
+        //target.style.backgroundColor = 'grey';
     }
     
     if (itemList) {

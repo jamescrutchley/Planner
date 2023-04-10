@@ -6,6 +6,11 @@
     <title>Document</title>
 </head>
 <body>
+
+    <div id="header">
+        <h1 id="mainHeading">My Planner</h1>
+    </div>
+
     <form id="add-item-form" action="" style="display:none;max-width: 300px;
     padding: 10px;
     background-color: white;
@@ -66,8 +71,14 @@
         </ul>
     </form>
 
-    <button id="modal-popup-button">Add New Item</button>
-    <button id="clear-all-button">Clear All</button>
+    <div id="content-area">
+        <button id="modal-popup-button">+</button>
+        <div id="delete-buttons">
+            <button id="clear-all-button">Clear All</button>
+            <button id="clear-completed-button">Clear Completed</button>
+        </div>
+        <div id="footer"></div>
+    </div>
 
 </body>
 </html>

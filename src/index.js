@@ -1,3 +1,4 @@
+import "./style.scss";
 import {itemFactory} from './create/addItem';
 import renderItems from './render/renderCollection';
 import itemCollection from './manageCollection';

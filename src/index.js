@@ -4,15 +4,12 @@ import itemCollection from './manageCollection';
 import { setupInteraction } from './render/userInteraction';
 import { elementSelection } from './edit/selectItem';
 
-itemCollection.collection.push(itemFactory('duck', new Date()));
-itemCollection.collection.push(itemFactory('fox', new Date()));
-itemCollection.collection.push(itemFactory("boon's climbing adventures", new Date()));
-console.log(itemCollection.collection);
+itemCollection.collection.push(itemFactory('duck', '2023-04-09'));
+itemCollection.collection.push(itemFactory('fox', '2023-04-11'));
+itemCollection.collection.push(itemFactory("boon's climbing adventures", '2023-04-09'));
+itemCollection.collection.push(itemFactory('fox', '2022-04-09'));
+
 
 renderItems();
-setupModals();
-
+setupInteraction();
 elementSelection();
-// initial render
-
-// listen for changes and call refresh function

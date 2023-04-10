@@ -29,19 +29,16 @@ const renderItemBox = (item) => {
     const editButton = document.createElement('button');
     editButton.setAttribute('class', 'open-edit-button');
     editButton.setAttribute('data-id', item.id);
-    // editButton.addEventListener('click', function() {
-    //     let id = editButton.getAttribute('data-id'); 
-           // editItem(id)   
-    // })
     editButton.textContent = 'EDIT';
 
     const deleteButton = document.createElement('button');
     deleteButton.setAttribute('data-id', item.id);
+    deleteButton.textContent = 'DELETE';
     deleteButton.addEventListener('click', function() {
         let id = deleteButton.getAttribute('data-id');
         clearItem(id);
-    })
-    deleteButton.textContent = 'DELETE';
+    });
+    
 
     itemBox.append(itemMessage, itemDate, editButton, deleteButton);
     

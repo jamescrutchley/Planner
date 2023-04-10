@@ -3,8 +3,7 @@ import renderItems from "./render/renderCollection";
 
 const observeCollection = {
     update: function(selection) {
-        console.log('i will delete the ' + selection);
-        console.log(selection.id);
+        console.log('calling a re-render...');
 
         renderItems();
     }

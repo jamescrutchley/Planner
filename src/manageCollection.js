@@ -1,9 +1,7 @@
-import { editItemMessage } from "./edit/editItemMessage";
 import observeCollection from "./testObserver";
+import { itemFactory } from "./create/addItem";
 
 // each method can share a 'check if valid object' function.
-
-const clearAllButton = document.querySelector('#clear-all-button');
 
 const itemCollection = {
     collection: [],
@@ -17,6 +15,13 @@ const itemCollection = {
         this.observers.forEach(observer => observer.update(selection));
       },
 
+    addObject: function(msg, date) {
+        const newItem = itemFactory(msg, date);
+        this.collection.push(newItem);
+        console.log('ADD: ' + newItem);
+        this.notifyObservers(newItem);
+    },
+
     modifyObject: function(selection, newMsg) {
         //check if valid argument
         console.log('MODIFY: ' + selection);
@@ -26,8 +31,9 @@ const itemCollection = {
 
     deleteAllObjects: function() {
         //are you sure?
-        this.collection = [];
-        this.notifyObservers(this.collection);
+        const newCollection = [];
+        this.collection = newCollection;
+        this.notifyObservers(newCollection);
     },
 
     deleteObject: function(selection) {
@@ -40,7 +46,6 @@ const itemCollection = {
     }
 }
 
-clearAllButton.addEventListener('click', itemCollection.clearCollection);
 
 
 

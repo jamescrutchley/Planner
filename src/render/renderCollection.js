@@ -1,6 +1,6 @@
-import itemCollection from './manageCollection';
-import { clearItem } from './clearItem';
-import { editItem } from './modalPopup';
+import itemCollection from '../manageCollection';
+import { clearItem } from '../delete/clearItem';
+import { editItem } from './setupModals';
 
 const renderItems = () => {
     const container = document.createElement('div');

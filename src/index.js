@@ -1,8 +1,8 @@
-import {itemFactory} from './addItem';
-import renderItems from './renderCollection';
+import {itemFactory} from './create/addItem';
+import renderItems from './render/renderCollection';
 import itemCollection from './manageCollection';
-import { setupModals } from './modalPopup';
-import { elementSelection } from './selectItem';
+import { setupModals } from './render/setupModals';
+import { elementSelection } from './edit/selectItem';
 
 itemCollection.collection.push(itemFactory('duck', new Date()));
 itemCollection.collection.push(itemFactory('fox', new Date()));

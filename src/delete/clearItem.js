@@ -1,4 +1,4 @@
-import itemCollection from "./manageCollection";
+import itemCollection from "../manageCollection";
 
 const clearItem = (id) => {
     let selection = itemCollection.collection.find(item => item.id == id);

@@ -10,7 +10,7 @@ const setupModals = () => {
     const submitEditItemFormbutton = document.querySelector('#edit-item-button');
     const editItemButtons = Array.from(document.querySelectorAll('.open-edit-button'))
 
-    const selectedItem = null;
+    let selectedItem = null;
     
     const displayAddItem = () => {
         addItemForm.style.display = 'block';
@@ -25,21 +25,15 @@ const setupModals = () => {
     }
 
     const editItem = function(id) {
-        const selectedItem = itemCollection.collection.find(item => item.id == id);
-        console.log(selectedItem);
-        const editMessageInput = document.querySelector('#edit-message');
-        const editDateInput =  document.querySelector('#edit-date');
-        editMessageInput.value = (selectedItem.msg).toString();
-        editDateInput.value = selectedItem.date;
+        selectedItem = itemCollection.collection.find(item => item.id == id);
+        console.log('the selected item is: ' + selectedItem + id);
         editItemForm.style.display = 'block';
     }
 
     const submitEditItemForm = () => {
-        const selectedObject = selectedItem;
-        let messageInput = document.querySelector('#edit-message');
-        let dateInput = document.querySelector('#edit-date');
-        console.log(selectedObject.msg);
-        editItemMessage(selectedObject, messageInput);
+        let messageInput = document.querySelector('#edit-message').value;
+        console.log(messageInput);
+        itemCollection.modifyObject(selectedItem, messageInput);
     }
     
     addItemForm.addEventListener('submit', event => {
@@ -48,15 +42,24 @@ const setupModals = () => {
     editItemForm.addEventListener('submit', event => {
         event.preventDefault();
     })
-    submitEditItemFormbutton.addEventListener('click', submitEditItemForm);
-    submitAddItemFormButton.addEventListener('click', submitAddItemForm);
-    addItemButton.addEventListener('click', displayAddItem);
-    
+
     editItemButtons.forEach(item => item.addEventListener('click', function() {
         console.log('editItemButton fired')
         let id = item.dataset.id;
         editItem(id);
     }));
+
+    
+
+    submitEditItemFormbutton.addEventListener('click', function() {
+        submitEditItemForm();
+    });
+
+    submitAddItemFormButton.addEventListener('click', submitAddItemForm);
+
+    addItemButton.addEventListener('click', displayAddItem);
+    
+
 }
 
 

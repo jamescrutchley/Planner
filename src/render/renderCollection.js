@@ -3,6 +3,12 @@ import { clearItem } from '../delete/clearItem';
 import { editItem } from './setupModals';
 
 const renderItems = () => {
+    const itemList = document.querySelector('#item-list');
+
+    if (itemList) {
+        document.body.removeChild(itemList);
+    };
+
     const container = document.createElement('div');
     container.id = 'item-list';
     document.body.appendChild(container);

@@ -1,7 +1,7 @@
 import {itemFactory} from './create/addItem';
 import renderItems from './render/renderCollection';
 import itemCollection from './manageCollection';
-import { setupModals } from './render/setupModals';
+import { setupInteraction } from './render/userInteraction';
 import { elementSelection } from './edit/selectItem';
 
 itemCollection.collection.push(itemFactory('duck', new Date()));

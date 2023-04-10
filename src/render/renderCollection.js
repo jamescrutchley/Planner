@@ -1,6 +1,6 @@
 import itemCollection from '../manageCollection';
 import { clearItem } from '../delete/clearItem';
-import { editItem } from './setupModals';
+import { editItem } from './userInteraction';
 
 const renderItems = () => {
     const itemList = document.querySelector('#item-list');

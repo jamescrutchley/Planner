@@ -1,7 +1,6 @@
-import { itemFactory } from "../create/addItem";
 import itemCollection from "../manageCollection";
 
-const setupModals = () => {
+const setupInteraction = () => {
     const addItemButton = document.querySelector('#modal-popup-button');
     const addItemForm = document.querySelector('#add-item-form');
     const editItemForm = document.querySelector('#edit-item-form');
@@ -72,4 +71,4 @@ const setupModals = () => {
 
 
 
-export {setupModals};
+export {setupInteraction};

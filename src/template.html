@@ -41,15 +41,16 @@
         </ul>
     </form>
 
-    <form id="edit-item-form" action="" style="display:none;max-width: 300px;
+    <form id="edit-item-form" action="" style="display:none;
     padding: 10px;
     background-color: white;
-    display: none;
     position: fixed;
-    bottom: 0;
-    right: 15px;
+    top: 20%;
+    left: 10%;
+    width: 300px;
+    height: 300px;
     border: 3px solid #f1f1f1;
-    z-index: 9;">
+    z-index: 9000;">
         <ul>
             <li class="form-row">
                 <p>Edit Item</p>
@@ -73,9 +74,15 @@
 
     <div id="content-area">
         <button id="modal-popup-button">+</button>
+        <div id="list-controls">
+
+        </div>
         <div id="delete-buttons">
-            <button id="clear-all-button">Clear All</button>
-            <button id="clear-completed-button">Clear Completed</button>
+            <button id="delete-options-button" class="."></button>
+            <div id="delete-options-container" class="hidden">
+                <button id="clear-all-button" class="delete-button hidden">Clear All</button>
+                <button id="clear-completed-button" class="delete-button hidden">Clear Completed</button>
+            </div>
         </div>
         <div id="footer"></div>
     </div>

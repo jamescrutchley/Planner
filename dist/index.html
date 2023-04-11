@@ -1,9 +1,89 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Development</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1"><script defer src="runtime.bundle.js"></script><script defer src="main.bundle.js"></script></head>
-  <body>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script defer src="runtime.bundle.js"></script><script defer src="main.bundle.js"></script></head>
+<body>
+
+    <div id="header">
+        <h1 id="mainHeading">My Planner</h1>
+    </div>
+
+    <form id="add-item-form" action="" style="display:none;max-width: 300px;
+    padding: 10px;
+    background-color: white;
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;">
+        <ul>
+            <li class="form-row">
+                <p>Add Item</p>
+            </li>
+
+            <li class="form-row">
+              <label for="message">Add Item:</label>
+              <input class='form-input' type="text" id='message' name='message' required autofocus>
+            </li>
+            
+            <li class="form-row">
+              <label for="date">Date:</label>
+              <input class='form-input' type="date" name='date' id='date' required>
+            </li>
+
+            <li class="form-row">
+                <button type="submit" id="submit-item-button">Add</button>
+            </li>
+        </ul>
+    </form>
+
+    <form id="edit-item-form" action="" style="display:none;
+    padding: 10px;
+    background-color: white;
+    position: fixed;
+    top: 20%;
+    left: 10%;
+    width: 300px;
+    height: 300px;
+    border: 3px solid #f1f1f1;
+    z-index: 9000;">
+        <ul>
+            <li class="form-row">
+                <p>Edit Item</p>
+            </li>
+
+            <li class="form-row">
+              <label for="edit-message">Edit Item:</label>
+              <input class='form-input' type="text" id='edit-message' name='edit-message' required autofocus>
+            </li>
+            
+            <li class="form-row">
+              <label for="date">Edit Date:</label>
+              <input class='form-input' type="date" name='edit-date' id='edit-date' required>
+            </li>
+
+            <li class="form-row">
+                <button type="submit" id="edit-item-button">Confirm</button>
+            </li>
+        </ul>
+    </form>
+
+    <div id="content-area">
+        <button id="modal-popup-button">+</button>
+        <div id="list-controls">
+
+        </div>
+        <div id="delete-buttons">
+            <button id="delete-options-button"></button>
+            <button id="clear-all-button">Clear All</button>
+            <button id="clear-completed-button">Clear Completed</button>
+        </div>
+        <div id="footer"></div>
+    </div>
+
+</body>
 </html>

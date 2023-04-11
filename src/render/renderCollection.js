@@ -20,6 +20,10 @@ const renderItems = () => {
 
     };
 
+    setTimeout( function() {
+        
+    }, 500);
+
     const container = document.createElement('div');
     container.id = 'item-list';
     contentArea.appendChild(container);

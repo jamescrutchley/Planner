@@ -1,5 +1,6 @@
 import trashIcon from '../trash.svg';
 
+
 const setupDeleteButton = () => {
     console.log(trashIcon);
 
@@ -11,14 +12,13 @@ const setupDeleteButton = () => {
     deleteOptionsButtonIcon.setAttribute('id', 'delete-options-icon');
     deleteOptionsButton.appendChild(deleteOptionsButtonIcon);
     
-
     const toggleDeleteOptions = ((e) => {
+
+        let initialState = true;
 
         if (e) {
             e.stopPropagation();
           }
-
-        let initialState = true;
       
         return (where = null, e) => {
           e.stopPropagation();
@@ -26,12 +26,13 @@ const setupDeleteButton = () => {
           console.log('Toggle!')
       
           if (where == 'body' && initialState == true) {
+            console.log('returning')
             return;
           }
       
           console.log('initial' + initialState)
-          initialState = !Boolean;
-          console.log(initialState);
+          initialState = !initialState;
+          console.log('final' + initialState);
       
           deleteOptionsButton.classList.toggle('hidden');
           deleteOptionsContainer.classList.toggle('hidden');

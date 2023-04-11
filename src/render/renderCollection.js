@@ -3,7 +3,7 @@ import { clearItem } from '../delete/clearItem';
 import {editItem} from '../edit/editItem';
 import getTime from './getTime';
 import dayjs from 'dayjs';
-
+import { getRenderList } from '../read/sortButton';
 
 const renderItems = () => {
 
@@ -12,10 +12,16 @@ const renderItems = () => {
     const itemList = document.querySelector('#item-list');
     const contentArea = document.querySelector('#content-area');
 
+
+    //try/catch here is a cosmetic fix only - will add infinite item-list divs if you spam the sort button.
     if (itemList) {
         itemList.classList.add('deleted');
         setTimeout(function() {
-            contentArea.removeChild(itemList);
+            try {
+                contentArea.removeChild(itemList);
+            } catch {
+                //
+            }
           }, 500);
 
     };
@@ -28,7 +34,8 @@ const renderItems = () => {
     container.id = 'item-list';
     contentArea.appendChild(container);
 
-    let renderList = itemCollection.collection.sort((a, b) => dayjs(a.date) - dayjs(b.date));
+    let renderList = getRenderList();
+
     renderList.forEach(item => {
         container.append(renderItemBox(item));
     })

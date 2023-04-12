@@ -1,9 +1,9 @@
 // Light Mode Colors
-$primary-color: #0FA3B1;
-$secondary-color: #B5E2FA;
-$tertiary-color: #F7A072;
+$primary-color: #0fa3b1;
+$secondary-color: #b5e2fa;
+$tertiary-color: #f7a072;
 $text-color: #333333;
-$background-color: #F9F7F3;
+$background-color: #f9f7f3;
 
 // Dark Mode Colors
 $text-color-dark: #f8f9fa;
@@ -16,252 +16,316 @@ $text: $text-color;
 $background: $background-color;
 
 @keyframes fadeOut {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
+  from {
+    opacity: 1;
   }
+  to {
+    opacity: 0;
+  }
+}
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+button {
+  &:hover {
+    cursor: pointer;
+    width: 1.1rem;
+    filter: brightness(1.05);
+  }
+  &:active {
+    transform: scale(1.01);
+  }
 }
 
 .hidden {
-    display: none !important;
+  display: none !important;
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 :root {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    background-color: $background;
-    height: 120vh;
+  margin: 0;
+  padding: 0;
+  background-color: $background;
+  height: auto;
 }
 
 #header {
+  display: flex;
+  flex-wrap: nowrap;
+  top: 0px;
+  border: none;
+  width: 100vw;
+  z-index: 9000;
+  grid-area: header;
+  height: 20vh;
+  position: fixed;
+  background-color: $primary;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  h1 {
     display: flex;
-    top: 0px;
-    border: none;
-    width: 100vw;
-    z-index: 9000;
-    grid-area: header;
-    height: 20vh;
-    position: fixed;
-    background-color: $primary;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-    h1 {
-        font-family: 'Calligraffitti', cursive;
-        color: #EDDEA4;
-        font-size: 4rem;
-        text-align: center;
-        padding: 1rem; 
-    }
-};
+    flex-wrap: nowrap;
+    align-items: center;
+    font-family: "Calligraffitti", cursive;
+    color: #f9f7f3;
+    font-size: calc(1.6rem + 2vw);
+    text-align: center;
+    padding: 1rem 0rem 1rem 1.5rem;
+  }
+  img {
+    transform: scale(0.9);
+    filter: invert(0.93);
+  }
+}
 
 #content-area {
-    //overflow-y: scroll;
-    margin: 0.5rem;
-    display: grid;
-    grid-template-rows: 1fr 5fr;
-    grid-template-columns: 4fr 1fr;
-    grid-template-areas:
-    "header header"
+  position: absolute;
+  top: 20vh;
+  height: fit-content;
+  margin: 0.5rem;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 4fr 1fr;
+  grid-template-areas:
     "content controls";
-    #list-controls {
-        grid-area: controls;
-        display: flex;
-        #sort-button {
-            align-self: flex-start;
-            text-align: center;
-            background-color: $secondary;
-            color: $text;
-            border: none;
-            border-radius: 10px;
-            font-size: 1rem;
-            height: fit-content;
-            padding: 0.8rem;
-            width: 23vw;
-        }
-        #sort-button::after {
-            content: 'Date Ascending\a↑';
-            display: block;
-            color: gray;
-            font-size: 0.8rem;
-            padding-top: 0.5rem;
-        }
-        #sort-button.descending::after {
-            content: 'Date Descending\a↓';
-            display: block;
-            color: gray;
-            font-size: 0.8rem;
-            padding-top: 0.5rem;
-        }
+  #list-controls {
+    grid-area: controls;
+    display: flex;
+    #sort-button {
+      align-self: flex-start;
+      text-align: center;
+      background-color: $secondary;
+      color: $text;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      height: fit-content;
+      padding: 0.8rem;
+      width: 23vw;
     }
-    #footer {
-        z-index: 100;
-        height: 30vh;
-        width: 100vw;
-        position: fixed;
-        bottom: 0%;
-        //opacity: 10%;
-        &::after {
-            content: "";
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 50vh; // Change this to adjust the height of the fade-out effect.
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, white 100%);
-            z-index: -1;
-        }
+    #sort-button::after {
+      content: "Date Ascending\a↑";
+      display: block;
+      color: gray;
+      font-size: 0.8rem;
+      padding-top: 0.5rem;
     }
+    #sort-button.descending::after {
+      content: "Date Descending\a↓";
+      display: block;
+      color: gray;
+      font-size: 0.8rem;
+      padding-top: 0.5rem;
+    }
+  }
+  #footer {
+    z-index: 100;
+    height: 30vh;
+    width: 100vw;
+    position: fixed;
+    bottom: 0%;
+    //opacity: 10%;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 50vh; // Change this to adjust the height of the fade-out effect.
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) 0%,
+        white 100%
+      );
+      z-index: -1;
+    }
+  }
 }
 
 #modal-popup-button {
-    color: #EDDEA4;
-    z-index: 1000;
-    background-color: $primary;
-    border: none;
-    border-radius: 100px;
-    font-size: 5rem;
-    position: fixed;
-    bottom: 5%;
-    transform: translateX(-50%);
-    left: 75%;
+  color: #eddea4;
+  z-index: 1000;
+  background-color: $primary;
+  border: none;
+  border-radius: 100px;
+  font-size: 5em;
+  position: fixed;
+  bottom: 5%;
+  transform: translateX(-50%);
+  left: 75%;
 
-    width: 30vw;
-    height: 30vw;
+  width: 30vw;
+  height: 30vw;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#list-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #delete-buttons {
-    z-index: 9000;
-    margin-top: 1rem;
+  z-index: 9000;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  #delete-options-button {
+    border: none;
+    background-color: $tertiary-color;
+    border-radius: 100px;
+    padding: 1.6rem;
+    position: fixed;
+    width: fit-content;
+    bottom: 5%;
+    transform: translateX(-50%);
+    left: 25%;
+    #delete-options-icon {
+      height: 18vw;
+    }
+  }
+  #delete-options-container {
+    position: fixed;
+    width: fit-content;
+    bottom: 5%;
+    transform: translateX(-50%);
+    left: 25%;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    #delete-options-button {
-        border: none;
-        background-color: $tertiary-color;
-        border-radius: 100px;
-        padding: 1.6rem;
-        position: fixed;
-        width: fit-content;
-        bottom: 5%;
-        transform: translateX(-50%);
-        left: 25%;
-        #delete-options-icon {
-            height: 18vw;
-        }
+    button {
+      text-align: center;
+      background-color: $tertiary-color;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      height: fit-content;
+      padding: 1rem;
+      width: 40vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      ::after {
+        content: url("trash.svg");
+      }
     }
-    #delete-options-container {
-        position: fixed;
-        width: fit-content;
-        bottom: 5%;
-        transform: translateX(-50%);
-        left: 25%;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        button {
-            text-align: center;
-            background-color: $tertiary-color;
-            border: none;
-            border-radius: 10px;
-            font-size: 1rem;
-            height: fit-content;
-            padding: 1rem;
-            width: 40vw;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            ::after {
-                content: url('trash.svg')
-            }
-        }
-
-    }
+  }
 }
-
 
 #item-list {
-    z-index: 0;
-    animation: fadeIn 0.5s ease-in-out forwards;
-    grid-area: content;
-    display: flex;
-    flex-flow: column nowrap;
-    div {
-        border-radius: 20px;
-        background-color: $secondary;
-        margin: 1rem;
-        display: grid;
-        grid-template: 2fr 1fr / 1fr 1fr;
-        grid-template-areas: 
-         "main buttons"
-         ". date";
-        p:first-child {
-            font-family: 'Calligraffitti', cursive;
-            padding-left: 0.5rem;
-            font-size: larger;
-            font-weight: bold;
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-        }
-        p:nth-child(2) {
-            grid-area: date;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-style: italic;
-        }
-        #button-box {
-            grid-area: buttons;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 3px;
-            button {
-                text-align: center;
-                background-color: $text;
-                color: $text-color-dark;
-                border: none;
-                border-radius: 10px;
-                font-size: 0.7rem;
-                height: fit-content;
-                padding: 0.8rem;
-                width: fit-content;
-            }
-        }
-
+  height: fit-content;
+  z-index: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
+  grid-area: content;
+  display: flex;
+  flex-flow: column nowrap;
+  div {
+    border-radius: 20px;
+    background-color: $secondary;
+    margin: 1rem;
+    display: grid;
+    grid-template: 2fr 1fr / 1fr 1fr;
+    grid-template-areas:
+      "main buttons"
+      ". date";
+    &:hover {
+        background-color: adjust-hue($color: $secondary, $degrees: 5);
     }
+    p:first-child {
+      font-family: "Calligraffitti", cursive;
+      padding-left: 0.5rem;
+      font-size: larger;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+    p:nth-child(2) {
+      grid-area: date;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-style: italic;
+    }
+    #button-box {
+      grid-area: buttons;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3px;
+      background-color: transparent;
+      button {
+        text-align: center;
+        background-color: $text;
+        color: $text-color-dark;
+        border: none;
+        border-radius: 10px;
+        font-size: 0.7rem;
+        height: fit-content;
+        padding: 0.8rem;
+        width: fit-content;
+      }
+    }
+  }
 }
-
 
 *.deleted {
-    animation: fadeOut 0.5s ease-in-out forwards;
+  animation: fadeOut 0.5s ease-in-out forwards;
 }
 
+@media screen and (min-width: 500px) {
+  #delete-buttons {
+    #delete-options-button {
+      position: fixed;
+      left: 90%;
+      height: fit-content;
+      padding: 1rem;
+      #delete-options-icon {
+        height: 8vh;
+      }
+    }
+    #delete-options-container {
+      button {
+        ::after {
+        }
+      }
+    }
+  }
+  #modal-popup-button {
+    position: fixed;
+    bottom: 22%;
+    transform: translateX(-50%);
+    left: 90%;
+    display: flex;
 
+    height: 13.8vh;
+    width: 13.8vh;
+
+    p {
+      justify-self: center;
+      align-self: center;
+    }
+  }
+
+  #footer {
+    display: none;
+  }
+}
+
+/* Laptops and larger */
+@media screen and (min-width: 1024px) {
+  /* Your CSS rules here */
+}

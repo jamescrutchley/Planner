@@ -22,10 +22,11 @@ const itemCollection = {
         this.notifyObservers(newItem);
     },
 
-    modifyObject: function(selection, newMsg) {
+    modifyObject: function(selection, newMsg, newDate) {
         //check if valid argument
         console.log('MODIFY: ' + selection);
         selection.msg = newMsg;
+        selection.date = newDate;
         this.notifyObservers(selection);
     },
 

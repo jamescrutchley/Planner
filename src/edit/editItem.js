@@ -18,7 +18,8 @@ const editItem = function(id) {
 
 const confirmEditItem = () => {
     let messageInput = editItemMsgInput.value;
-    itemCollection.modifyObject(selectedItem, messageInput);
+    let dateInput = editItemDateInput.value;
+    itemCollection.modifyObject(selectedItem, messageInput, dateInput);
 };
 
 export { editItem, confirmEditItem };

@@ -57,6 +57,7 @@ const setupInteraction = () => {
     
 
     submitEditItemFormbutton.addEventListener('click', function() {
+        editItemForm.style.display = 'none';
         confirmEditItem();
     });
 

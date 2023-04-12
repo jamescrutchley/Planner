@@ -1,6 +1,6 @@
 import itemCollection from '../manageCollection';
 import { clearItem } from '../delete/clearItem';
-import {editItem} from '../edit/editItem';
+import {editItem, toggleComplete} from '../edit/editItem';
 import getTime from './getTime';
 import dayjs from 'dayjs';
 import { getRenderList } from '../read/sortButton';
@@ -46,6 +46,15 @@ const renderItemBox = (item) => {
 
     const itemMessage = document.createElement('p');
     itemMessage.textContent = item.msg;
+    itemMessage.setAttribute('data-id', item.id);
+    if (item.complete) {
+        itemMessage.classList.add('complete');
+        itemBox.classList.add('complete');
+    };
+    itemMessage.addEventListener('click', function() {
+        let id = itemMessage.getAttribute('data-id');
+        toggleComplete(id);
+    })
 
     const itemDate = document.createElement('p');
     itemDate.textContent = getTime(item.date);

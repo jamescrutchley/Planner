@@ -1,6 +1,6 @@
 // Light Mode Colors
 $primary-color: #0fa3b1;
-$secondary-color: #b5e2fa;
+$secondary-color: #bbedf3;
 $tertiary-color: #f7a072;
 $text-color: #333333;
 $background-color: #f9f7f3;
@@ -47,6 +47,12 @@ button {
 .hidden {
   display: none !important;
 }
+
+.complete {
+    text-decoration: line-through !important;
+    color: fade-out($color: #000000, $amount: 0.5);
+}
+
 
 * {
   box-sizing: border-box;
@@ -245,6 +251,7 @@ body {
         background-color: adjust-hue($color: $secondary, $degrees: 5);
     }
     p:first-child {
+      display: flex;
       font-family: "Calligraffitti", cursive;
       padding-left: 0.5rem;
       font-size: larger;
@@ -252,6 +259,9 @@ body {
       display: flex;
       justify-content: center;
       align-items: flex-end;
+      &:hover {
+        cursor: pointer;
+      }
     }
     p:nth-child(2) {
       grid-area: date;
@@ -279,6 +289,9 @@ body {
         width: fit-content;
       }
     }
+  }
+  div:nth-child(odd) {
+    background-color: #a8d4d9;
   }
 }
 

@@ -22,8 +22,12 @@ const itemCollection = {
         this.notifyObservers(newItem);
     },
 
-    modifyObject: function(selection, newMsg, newDate) {
+    modifyObject: function(selection, newMsg, newDate, complete=null) {
         //check if valid argument
+        if (complete) {
+            selection.complete = !selection.complete;
+            console.log(selection.complete);
+        }
         console.log('MODIFY: ' + selection);
         selection.msg = newMsg;
         selection.date = newDate;

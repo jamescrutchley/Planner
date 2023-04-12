@@ -4,11 +4,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap" rel="stylesheet">
 <script defer src="runtime.bundle.js"></script><script defer src="main.bundle.js"></script></head>
 <body>
 
     <div id="header">
-        <h1 id="mainHeading">My Planner</h1>
+        <h1 id="mainHeading">My Planner <img src="diary.svg" alt=""></h1>
     </div>
 
     <form id="add-item-form" action="" style="display:none;max-width: 300px;
@@ -75,12 +78,14 @@
     <div id="content-area">
         <button id="modal-popup-button">+</button>
         <div id="list-controls">
-
+            <button id="sort-button" class="descending">Sort</button>
         </div>
         <div id="delete-buttons">
-            <button id="delete-options-button"></button>
-            <button id="clear-all-button">Clear All</button>
-            <button id="clear-completed-button">Clear Completed</button>
+            <button id="delete-options-button" class="."></button>
+            <div id="delete-options-container" class="hidden">
+                <button id="clear-all-button" class="delete-button hidden">Clear All</button>
+                <button id="clear-completed-button" class="delete-button hidden">Clear Completed</button>
+            </div>
         </div>
         <div id="footer"></div>
     </div>

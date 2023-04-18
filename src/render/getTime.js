@@ -13,7 +13,8 @@ dayjs.extend(relativeTime)
 dayjs.extend(calendar)
 dayjs.extend(updateLocale)
 
-
+// dayjs date coercion. 
+// takes in object date string, returns custom ouputs like 'tomorrow'. 
 
 const timeZone = dayjs.tz.guess()
 

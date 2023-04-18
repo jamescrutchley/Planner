@@ -1,4 +1,7 @@
 
+// unused/unfinished module. Was originally planning to have a globally 'active' item to facilitate user interaction.
+// now using data-ids attached to interactive elements instead
+
 const elementSelection = () => {
     const itemList = Array.from(document.querySelector('#item-list').childNodes);
 

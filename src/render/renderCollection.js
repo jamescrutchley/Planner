@@ -7,18 +7,22 @@ import { getRenderList } from '../read/sortButton';
 
 const renderItems = () => {
 
-    //currently doing a full re-render on change: update to make more efficient.
+    //currently doing a full re-render on change:
+    //Ways of making more efficient?
+    //Will require modifying existing structure?
 
-    const itemList = document.querySelector('#item-list');
+    const existingItemList = document.querySelector('#item-list');
     const contentArea = document.querySelector('#content-area');
 
 
     //try/catch here is a cosmetic fix only - will add infinite item-list divs if you spam the sort button.
-    if (itemList) {
-        itemList.classList.add('deleted');
+    // easiest solution - disable action buttons for 500ms?
+    // If itemList exists, adds a 'deleted' class then deletes the element after 500ms.
+    if (existingItemList) {
+        existingItemList.classList.add('deleted');
         setTimeout(function() {
             try {
-                contentArea.removeChild(itemList);
+                contentArea.removeChild(existingItemList);
             } catch {
                 //
             }
@@ -26,21 +30,24 @@ const renderItems = () => {
 
     };
 
-    setTimeout( function() {
-        
-    }, 500);
+    // creates an 'item-list' element
+    const itemList = document.createElement('div');
+    itemList.id = 'item-list';
+    contentArea.appendChild(itemList);
 
-    const container = document.createElement('div');
-    container.id = 'item-list';
-    contentArea.appendChild(container);
 
+    // get collection to render ordered by date either descending or ascending. 
     let renderList = getRenderList();
 
+    // for each item object, create an 'item box' and append it
     renderList.forEach(item => {
-        container.append(renderItemBox(item));
+        itemList.append(renderItemBox(item));
     })
 }
 
+// create individual 'item-boxes' based on item objects. 
+// clickable elements are given data-ids that facilitate selection and modification of the objects.
+// event listeners are added to clickable objects here - seemed convenient - should this be done elsewhere?
 const renderItemBox = (item) => {
     const itemBox = document.createElement('div');
 
@@ -61,7 +68,6 @@ const renderItemBox = (item) => {
 
     const buttonBox = document.createElement('div');
     buttonBox.setAttribute('id', 'button-box');
-
 
     const editButton = document.createElement('button');
     editButton.setAttribute('class', 'open-edit-button');

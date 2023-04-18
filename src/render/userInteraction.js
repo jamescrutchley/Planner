@@ -2,7 +2,7 @@ import itemCollection from "../manageCollection";
 import { confirmEditItem, editItem } from "../edit/editItem";
 
 
-//separate the permanent buttons from the buttons generated on refresh.
+// Display and submit 'Add Item' Form.
 
 const setupInteraction = () => {
     const addItemButton = document.querySelector('#modal-popup-button');
@@ -13,12 +13,17 @@ const setupInteraction = () => {
     const editItemButtons = Array.from(document.querySelectorAll('.open-edit-button'));
     const clearAllButton = document.querySelector('#clear-all-button');
 
-    
+
+    // display 'add item' form:
     const displayAddItem = () => {
         addItemForm.style.display = 'block';
         editItemForm.style.display = 'none';
     }
+
+    addItemButton.addEventListener('click', displayAddItem);
+
     
+    // submit 'add item' form:
     const submitAddItemForm = () => {
         // add coercion and error handling here
         let messageInput = document.querySelector('#message').value;;
@@ -26,20 +31,10 @@ const setupInteraction = () => {
         itemCollection.addObject(messageInput, dateInput);
     }
 
-    // const editItem = function(id) {
-    //     selectedItem = itemCollection.collection.find(item => item.id == id);
-    //     console.log('item selected: ' + selectedItem);
-    //     editItemMsgInput.value = selectedItem.msg;
-    //     editItemDateInput.value = selectedItem.date;
-    //     console.log('the selected item is: ' + selectedItem + id);
-    //     editItemForm.style.display = 'block';
-    // }
+    submitAddItemFormButton.addEventListener('click', submitAddItemForm);
 
-    // const submitEditItemForm = () => {
-    //     let messageInput = document.querySelector('#edit-message').value;
-    //     console.log(messageInput);
-    //     itemCollection.modifyObject(selectedItem, messageInput);
-    // }
+
+    //prevent default form submission behaviour
     
     addItemForm.addEventListener('submit', event => {
         event.preventDefault();
@@ -48,31 +43,19 @@ const setupInteraction = () => {
         event.preventDefault();
     })
 
-    // editItemButtons.forEach(item => item.addEventListener('click', function() {
-    //     console.log('editItemButton fired')
-    //     let id = item.dataset.id;
-    //     editItem(id);
-    // }));
-
-    
-
+    //submit edit item form - call external 'confirmation' function:
     submitEditItemFormbutton.addEventListener('click', function() {
         editItemForm.style.display = 'none';
         confirmEditItem();
     });
 
-    submitAddItemFormButton.addEventListener('click', submitAddItemForm);
 
-    addItemButton.addEventListener('click', displayAddItem);
-
+    // clear all button calls item collection's 'deleteAllObjects' method:
     clearAllButton.addEventListener('click', function() {
         itemCollection.deleteAllObjects();
     });
 
 }
-
-
-
 
 
 export {setupInteraction};

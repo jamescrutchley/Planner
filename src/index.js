@@ -12,9 +12,9 @@ import renderMiscIcons from "./render/miscIcons";
 // example items
 itemCollection.collection.push(itemFactory('feed the ducks', '2023-04-09'));
 itemCollection.collection.push(itemFactory('start a scheme', '2023-04-11'));
-itemCollection.collection.push(itemFactory("rock climbing", '2023-04-09'));
-itemCollection.collection.push(itemFactory('forest clearing', '2022-04-09'));
-itemCollection.collection.push(itemFactory('Discover a new animal', '2023-04-12'));
+itemCollection.collection.push(itemFactory("climb a tree", '2023-04-09'));
+itemCollection.collection.push(itemFactory('dentist', '2022-04-09'));
+itemCollection.collection.push(itemFactory('sail the seven seas', '2023-04-12'));
 
 
 // call these here? 

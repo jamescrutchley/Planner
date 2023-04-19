@@ -18,6 +18,7 @@ const editItem = function(id) {
     console.log('the selected item is: ' + selectedItem + id);
     editItemForm.style.display = 'block';
     addItemForm.style.display = 'none';
+    editItemMsgInput.select();
 };
 
 //toggles at item's 'complete' attribute.

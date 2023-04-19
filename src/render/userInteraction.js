@@ -10,6 +10,7 @@ const setupInteraction = () => {
     const addItemForm = document.querySelector('#add-item-form');
     const closeAddItemFormButton = document.querySelector('#close-add-form');
     const submitAddItemFormButton = document.querySelector('#submit-item-button');
+    const msgInputField = document.querySelector('#message');
 
     const editItemForm = document.querySelector('#edit-item-form');
     const closeEditItemFormButton = document.querySelector('#close-edit-form');
@@ -24,6 +25,7 @@ const setupInteraction = () => {
     const displayAddItem = () => {
         addItemForm.style.display = 'block';
         editItemForm.style.display = 'none';
+        msgInputField.focus();
     }
 
     addItemButton.addEventListener('click', displayAddItem);

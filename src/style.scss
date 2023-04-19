@@ -105,6 +105,8 @@ body {
 }
 
 #add-item-form, #edit-item-form {
+    display: flex;
+    flex-direction: column;
     border-radius: 10px;
     border: solid $primary 3px;
     position: fixed;
@@ -114,20 +116,23 @@ body {
     background-color: $secondary;
     width: 90vw;
     height: fit-content;
-    #close-form {
+    .close-form {
         position: absolute;
         right: 1rem;
         align-self: flex-end;
         text-align: center;
         background-color: transparent;
-        color: $background-color;
+        color: slategray;
         border: none;
         height: fit-content;
-        font-size: 3rem;
+        font-size: 2.5rem;
         width: fit-content;
         display: flex;
         flex-direction: column;
         align-items: center;
+        &:hover {
+            color: black;
+        }
     }
     ul {
         padding: 1rem;
@@ -428,7 +433,6 @@ body {
     }
   }
   #add-item-form, #edit-item-form {
-    height: fit-content;
     border-radius: 10px;
     border: solid $primary 3px;
     position: fixed;

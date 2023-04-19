@@ -3,6 +3,7 @@ import itemCollection from "../manageCollection";
 const editItemMsgInput = document.querySelector('#edit-message');
 const editItemDateInput = document.querySelector('#edit-date');
 const editItemForm = document.querySelector('#edit-item-form');
+const addItemForm = document.querySelector('#add-item-form');
 
 // selectedItem matches DOM element to object instance via a data-id property assigned at element creation.
 let selectedItem = null;
@@ -16,6 +17,7 @@ const editItem = function(id) {
     editItemDateInput.value = selectedItem.date;
     console.log('the selected item is: ' + selectedItem + id);
     editItemForm.style.display = 'block';
+    addItemForm.style.display = 'none';
 };
 
 //toggles at item's 'complete' attribute.

@@ -8,14 +8,19 @@ import { clearComplete } from "../delete/clearComplete";
 const setupInteraction = () => {
     const addItemButton = document.querySelector('#modal-popup-button');
     const addItemForm = document.querySelector('#add-item-form');
-    const editItemForm = document.querySelector('#edit-item-form');
+    const closeAddItemFormButton = document.querySelector('#close-add-form');
     const submitAddItemFormButton = document.querySelector('#submit-item-button');
+
+    const editItemForm = document.querySelector('#edit-item-form');
+    const closeEditItemFormButton = document.querySelector('#close-edit-form');
     const submitEditItemFormbutton = document.querySelector('#edit-item-button');
+  
     const clearAllButton = document.querySelector('#clear-all-button');
-    const clearCompleteButton = document.querySelector('#clear-complete-button')
+    const clearCompleteButton = document.querySelector('#clear-complete-button');
 
 
     // display 'add item' form:
+    // generic open/close modal function? Takes target and open/close params?
     const displayAddItem = () => {
         addItemForm.style.display = 'block';
         editItemForm.style.display = 'none';
@@ -60,6 +65,14 @@ const setupInteraction = () => {
     clearCompleteButton.addEventListener('click', function() {
         clearComplete();
     });
+
+    closeAddItemFormButton.addEventListener('click', function() {
+        addItemForm.style.display = 'none';
+    })
+
+    closeEditItemFormButton.addEventListener('click', function() {
+        editItemForm.style.display = 'none';
+    })
 
 }
 

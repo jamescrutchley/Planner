@@ -1,6 +1,6 @@
-import itemCollection from "./manageCollection";
+// import itemCollection from "./manageCollection";
 import renderItems from "./render/renderCollection";
-import { setupInteraction } from "./render/userInteraction";
+// import { setupInteraction } from "./render/userInteraction";
 
 
 // simply calls a re-render at this stage.

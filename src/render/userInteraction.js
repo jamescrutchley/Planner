@@ -1,5 +1,6 @@
 import itemCollection from "../manageCollection";
-import { confirmEditItem, editItem } from "../edit/editItem";
+import { confirmEditItem } from "../edit/editItem";
+import { clearComplete } from "../delete/clearComplete";
 
 
 // Display and submit 'Add Item' Form.
@@ -10,8 +11,8 @@ const setupInteraction = () => {
     const editItemForm = document.querySelector('#edit-item-form');
     const submitAddItemFormButton = document.querySelector('#submit-item-button');
     const submitEditItemFormbutton = document.querySelector('#edit-item-button');
-    const editItemButtons = Array.from(document.querySelectorAll('.open-edit-button'));
     const clearAllButton = document.querySelector('#clear-all-button');
+    const clearCompleteButton = document.querySelector('#clear-complete-button')
 
 
     // display 'add item' form:
@@ -29,6 +30,7 @@ const setupInteraction = () => {
         let messageInput = document.querySelector('#message').value;;
         let dateInput = document.querySelector('#date').value;
         itemCollection.addObject(messageInput, dateInput);
+        addItemForm.style.display = 'none';
     }
 
     submitAddItemFormButton.addEventListener('click', submitAddItemForm);
@@ -53,6 +55,10 @@ const setupInteraction = () => {
     // clear all button calls item collection's 'deleteAllObjects' method:
     clearAllButton.addEventListener('click', function() {
         itemCollection.deleteAllObjects();
+    });
+
+    clearCompleteButton.addEventListener('click', function() {
+        clearComplete();
     });
 
 }

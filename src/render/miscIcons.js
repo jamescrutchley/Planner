@@ -1,4 +1,4 @@
-import headerIconSVG from '../diary.svg'
+import headerIconSVG from '../assets/diary.svg'
 
 //import image sources, create images.
 

@@ -1,4 +1,4 @@
-import trashIcon from "../trash.svg";
+import trashIcon from "../assets/trash.svg";
 
 // delete button options popup. 
 

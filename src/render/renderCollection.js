@@ -1,8 +1,6 @@
-import itemCollection from '../manageCollection';
 import { clearItem } from '../delete/clearItem';
 import {editItem, toggleComplete} from '../edit/editItem';
 import getTime from './getTime';
-import dayjs from 'dayjs';
 import { getRenderList } from '../read/sortButton';
 
 const renderItems = () => {
@@ -18,17 +16,24 @@ const renderItems = () => {
     //try/catch here is a cosmetic fix only - will add infinite item-list divs if you spam the sort button.
     // easiest solution - disable action buttons for 500ms?
     // If itemList exists, adds a 'deleted' class then deletes the element after 500ms.
-    if (existingItemList) {
-        existingItemList.classList.add('deleted');
-        setTimeout(function() {
-            try {
-                contentArea.removeChild(existingItemList);
-            } catch {
-                //
-            }
-          }, 500);
+    
+        // if (existingItemList) {
+        //     existingItemList.classList.add('deleted');
+        //     setTimeout(function() {
+        //         try {
+        //             contentArea.removeChild(existingItemList);
+        //         } catch {
+        //             //
+        //         }
+        //       }, 500);
 
-    };
+        // };
+
+    // Everything functions as it should this way, but doesn't look as good - visible refresh. 
+
+        if (existingItemList) {
+            contentArea.removeChild(existingItemList);
+        };
 
     // creates an 'item-list' element
     const itemList = document.createElement('div');

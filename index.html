@@ -1,0 +1,80 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap" rel="stylesheet">
+<script defer src="runtime.bundle.js"></script><script defer src="main.bundle.js"></script></head>
+<body>
+
+    <div id="header">
+        <h1 id="mainHeading">My Planner <img src="diary.svg" alt=""></h1>
+    </div>
+
+    <form id="add-item-form" action="" style="display:none" novalidate>
+        <button id="close-add-form" class='close-form' type="button">x</button>
+        <ul>
+            <li class="form-row">
+                <p>Add Item</p>
+            </li>
+
+            <li class="form-row">
+              <label for="message">Add Item:</label>
+              <input class='form-input' type="text" id='message' name='message' maxlength="100" required autofocus>
+            </li>
+            
+            <li class="form-row">
+              <label for="date">Date:</label>
+              <input class='form-input' type="date" name='date' id='date' required>
+            </li>
+
+            <li class="form-row">
+                <button type="submit" class='submit-form-button' id="submit-item-button">Add</button>
+            </li>
+        </ul>
+    </form>
+
+    <form id="edit-item-form" action="" style="display:none" novalidate>
+        <button id="close-edit-form" class='close-form' type="button">x</button>
+        <ul>
+            <li class="form-row">
+                <p>Edit Item</p>
+            </li>
+
+            <li class="form-row">
+              <label for="edit-message">Edit Item:</label>
+              <input class='form-input' type="text" id='edit-message' name='edit-message' minlength="1" maxlength="100" required autofocus>
+              <span class="input-error-message"></span>
+            </li>
+            
+            <li class="form-row">
+              <label for="date">Edit Date:</label>
+              <input class='form-input' type="date" name='edit-date' id='edit-date' required>
+            </li>
+
+            <li class="form-row">
+                <button type="submit" class='submit-form-button' id="edit-item-button">Confirm</button>
+            </li>
+        </ul>
+    </form>
+
+    <div id="content-area">
+        <button class="main-button" id="modal-popup-button"><p>+</p></button>
+        <div id="list-controls">
+            <button id="sort-button" class="descending">Sort</button>
+        </div>
+        <div id="delete-buttons">
+            <button class="main-button" id="delete-options-button" class="."></button>
+            <div id="delete-options-container" class="hidden">
+                <button id="clear-all-button" class="delete-button hidden">Clear All</button>
+                <button id="clear-complete-button" class="delete-button hidden">Clear Completed</button>
+            </div>
+        </div>
+        <div id="footer"></div>
+    </div>
+
+</body>
+</html>

@@ -53,9 +53,10 @@ const setupInteraction = () => {
     })
 
     //submit edit item form - call external 'confirmation' function:
+    // presents complications for adding validation.
     submitEditItemFormbutton.addEventListener('click', function() {
-        editItemForm.style.display = 'none';
         confirmEditItem();
+        editItemForm.style.display = 'none';
     });
 
 

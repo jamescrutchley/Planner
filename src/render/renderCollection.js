@@ -2,6 +2,7 @@ import { clearItem } from '../delete/clearItem';
 import {editItem, toggleComplete} from '../edit/editItem';
 import getTime from './getTime';
 import { getRenderList } from '../read/sortButton';
+import { calculateHeightOfListContainer } from './handleItemEffects';
 
 const renderItems = () => {
 
@@ -48,13 +49,22 @@ const renderItems = () => {
     renderList.forEach(item => {
         itemList.append(renderItemBox(item));
     })
+
+    // calculateHeightOfListContainer();
+
+
 }
 
 // create individual 'item-boxes' based on item objects. 
 // clickable elements are given data-ids that facilitate selection and modification of the objects.
 // event listeners are added to clickable objects here - seemed convenient - should this be done elsewhere?
 const renderItemBox = (item) => {
+    // const itemBoxOuter = document.createElement('div');
+    // itemBoxOuter.setAttribute('id', 'item-box-outer');
+    // itemBoxOuter.classList.add('show');
     const itemBox = document.createElement('div');
+    itemBox.setAttribute('id', 'item-box');
+    itemBox.classList.add('show');
 
     const itemMessage = document.createElement('p');
     itemMessage.textContent = item.msg;
@@ -91,7 +101,7 @@ const renderItemBox = (item) => {
         clearItem(id);
     });
     
-
+    // itemBoxOuter.append(itemBox);
     itemBox.append(itemMessage, itemDate, buttonBox);
     buttonBox.append(editButton, deleteButton)
     

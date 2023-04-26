@@ -1,9 +1,11 @@
 import itemCollection from "../manageCollection";
+import { validateForm } from "./validateForm";
 
 const editItemMsgInput = document.querySelector('#edit-message');
 const editItemDateInput = document.querySelector('#edit-date');
 const editItemForm = document.querySelector('#edit-item-form');
 const addItemForm = document.querySelector('#add-item-form');
+
 
 // selectedItem matches DOM element to object instance via a data-id property assigned at element creation.
 let selectedItem = null;
@@ -33,7 +35,9 @@ const toggleComplete = function(id) {
 const confirmEditItem = () => {
     let messageInput = editItemMsgInput.value;
     let dateInput = editItemDateInput.value;
-    itemCollection.modifyObject(selectedItem, messageInput, dateInput);
+    if (validateForm(editItemForm)) {
+        itemCollection.modifyObject(selectedItem, messageInput, dateInput);
+    }
 };
 
 export { editItem, confirmEditItem, toggleComplete };

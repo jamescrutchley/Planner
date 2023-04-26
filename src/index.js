@@ -6,7 +6,6 @@ import { setupInteraction } from './render/userInteraction';
 import { elementSelection } from './edit/selectItem';
 import setupDeleteButton from "./render/deletionOptions";
 import {setupSortButton} from "./read/sortButton";
-import renderMiscIcons from "./render/miscIcons";
 
 
 // example items

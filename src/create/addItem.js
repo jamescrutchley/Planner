@@ -1,18 +1,24 @@
+import itemCollection from "../manageCollection";
+import { validateForm } from "../edit/validateForm";
 
-// factory function to create object instances. 
-// 'complete' always false on object creation.
-// counter simply reflects the number of times itemFactory is called. Better ways to uniquely identify objects?
+const addItemForm = document.querySelector('#add-item-form');
+const errorMessageSpan = document.querySelector('#add-item-message-error')
 
-let counter = 0; 
 
-const itemFactory = (msg, date, complete=false) => {
-    const proto = {
-    msg,
-    date,
-    complete,
-  }
-    const item = {msg, date, complete, id: counter++};
-    return Object.assign(proto, item);
+const submitAddItemForm = () => {
+    // add coercion and error handling here
+    let messageInput = document.querySelector('#message');
+    let dateInput = document.querySelector('#date');
+    if (validateForm(messageInput)) {
+        itemCollection.addObject(messageInput.value, dateInput.value);
+        addItemForm.style.display = 'none';
+    } else {
+        errorMessageSpan.textContent = "Field can't be left blank!";
+        messageInput.addEventListener('input', function() {
+            errorMessageSpan.textContent = '';
+        })
+    }
+
 }
 
-export {counter, itemFactory};
+export { submitAddItemForm }

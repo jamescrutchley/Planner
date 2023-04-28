@@ -1,5 +1,6 @@
 import itemCollection from "../manageCollection";
 import { confirmEditItem } from "../edit/editItem";
+import { submitAddItemForm } from "../create/addItem";
 import { clearComplete } from "../delete/clearComplete";
 
 
@@ -19,10 +20,14 @@ const setupInteraction = () => {
     const clearAllButton = document.querySelector('#clear-all-button');
     const clearCompleteButton = document.querySelector('#clear-complete-button');
 
+    const errorMessageSpan = document.querySelector('#add-item-message-error')
+
+
 
     // display 'add item' form:
     // generic open/close modal function? Takes target and open/close params?
     const displayAddItem = () => {
+        errorMessageSpan.textContent = '';
         addItemForm.style.display = 'block';
         editItemForm.style.display = 'none';
         msgInputField.focus();
@@ -32,13 +37,7 @@ const setupInteraction = () => {
 
     
     // submit 'add item' form:
-    const submitAddItemForm = () => {
-        // add coercion and error handling here
-        let messageInput = document.querySelector('#message').value;;
-        let dateInput = document.querySelector('#date').value;
-        itemCollection.addObject(messageInput, dateInput);
-        addItemForm.style.display = 'none';
-    }
+
 
     submitAddItemFormButton.addEventListener('click', submitAddItemForm);
 
@@ -56,7 +55,6 @@ const setupInteraction = () => {
     // presents complications for adding validation.
     submitEditItemFormbutton.addEventListener('click', function() {
         confirmEditItem();
-        editItemForm.style.display = 'none';
     });
 
 

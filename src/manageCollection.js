@@ -1,5 +1,5 @@
 import observeCollection from "./testObserver";
-import { itemFactory } from "./create/addItem";
+import { itemFactory } from "./create/addItemFactory";
 
 // to-do: input validation. Right place to do it? "server side"
 

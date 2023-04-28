@@ -1,5 +1,5 @@
 import "./style.scss";
-import {itemFactory} from './create/addItem';
+import {itemFactory} from './create/addItemFactory';
 import renderItems from './render/renderCollection';
 import itemCollection from './manageCollection';
 import { setupInteraction } from './render/userInteraction';

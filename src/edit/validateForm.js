@@ -1,3 +1,4 @@
+
 // Validation module.
 
 // May need to modify app structure/flow.
@@ -16,4 +17,15 @@
     // call edit-item pre-fill form function.
     // call validateForm function and pass back to (userInteraction? editItem?) to submit data and toggle form visibility if/when successful.
 
+//before submission - should return true if all clear, else return false with error message.
+const validateForm = (fieldToValidate) => {
+    const field = fieldToValidate;
 
+    if (field.validity.valueMissing) {
+        return false;
+    }
+
+    return true;
+}
+
+export { validateForm };
